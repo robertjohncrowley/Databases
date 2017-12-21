@@ -1,0 +1,10 @@
+SELECT position, COUNT(*) as count FROM staff GROUP BY position;
+SELECT city,COUNT(*) FROM property_for_rent WHERE type='Flat' GROUP BY city;
+SELECT branchNo, COUNT(*) FROM property_for_rent GROUP BY branchNo;
+SELECT staffNo, COUNT(*) FROM property_for_rent WHERE city='Glasgow' GROUP BY staffNo;
+SELECT client.clientNo, COUNT(*) FROM viewing JOIN client ON viewing.clientNo = client.clientNo WHERE fName='Mary' AND lName='Tregear' GROUP BY clientNo;
+SELECT ownerNo,COUNT(*) AS HousesOwned FROM property_for_rent WHERE type='house' AND city='Glasgow' GROUP BY ownerNo;
+SELECT clientNo FROM viewing JOIN property_for_rent ON viewing.propertyNo = property_for_rent.propertyNo WHERE city='Aberdeen';
+SELECT city, COUNT(*) FROM property_for_rent GROUP BY city HAVING COUNT(*) >= 2;
+SELECT branchNo, COUNT(*) AS NumAssistants FROM staff WHERE position = 'Assistant' GROUP BY branchNo HAVING COUNT(*) > 1;
+SELECT branchNo, SUM(salary) AS TotalSalary FROM staff GROUP BY branchNo;
